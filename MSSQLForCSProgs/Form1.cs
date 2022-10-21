@@ -37,5 +37,10 @@ namespace MSSQLForCSProgs
             command.Parameters.AddWithValue("Email", tbEmail.Text);
             MessageBox.Show(command.ExecuteNonQuery().ToString());
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
