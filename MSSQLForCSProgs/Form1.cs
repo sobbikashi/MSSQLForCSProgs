@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace MSSQLForCSProgs
 {
@@ -29,6 +22,20 @@ namespace MSSQLForCSProgs
             {
                 MessageBox.Show("Подключение установлено!");
             }
+        }
+
+        private void btnINSERT_Click(object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand($"INSERT INTO [Students] (Name, Surname, Birthday, Birthplace, Phone, Email) VALUES (@Name, @Surname, @Birthday, @Birthplace, @Phone, @Email)", sqlConnection);
+
+            DateTime date = DateTime.Parse(tbBirthday.Text);
+            command.Parameters.AddWithValue("Name", tbName.Text);
+            command.Parameters.AddWithValue("Surname", tbSurname.Text);
+            command.Parameters.AddWithValue("Birthday", $"{date.Month}/{date.Day}/{date.Year}");
+            command.Parameters.AddWithValue("Birthplace", tbBirthplace.Text);
+            command.Parameters.AddWithValue("Phone", tbPhone.Text);
+            command.Parameters.AddWithValue("Email", tbEmail.Text);
+            MessageBox.Show(command.ExecuteNonQuery().ToString());
         }
     }
 }
