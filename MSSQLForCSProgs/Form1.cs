@@ -53,11 +53,19 @@ namespace MSSQLForCSProgs
                 dataAdapter.Fill(dataSet);
                 dgvView.DataSource = dataSet.Tables[0];
             }
-            catch
+            catch (System.Data.SqlClient.SqlException ex)
             {
                 MessageBox.Show("Некорректный запрос, проверьте синтаксис");
             }
-           
+            //SqlDataAdapter dataAdapter = new SqlDataAdapter(tbSelect.Text, sqlConnection);
+            //DataSet dataSet = new DataSet();
+            //dataAdapter.Fill(dataSet);
+            //dgvView.DataSource = dataSet.Tables[0];
+            catch
+            {
+                MessageBox.Show("Проверьте запрос");
+            }
+
         }
     }
 }
