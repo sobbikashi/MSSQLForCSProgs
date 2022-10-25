@@ -43,5 +43,21 @@ namespace MSSQLForCSProgs
         {
             Close();
         }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(tbSelect.Text, sqlConnection);
+                DataSet dataSet = new DataSet();
+                dataAdapter.Fill(dataSet);
+                dgvView.DataSource = dataSet.Tables[0];
+            }
+            catch
+            {
+                MessageBox.Show("Некорректный запрос, проверьте синтаксис");
+            }
+           
+        }
     }
 }
