@@ -49,17 +49,27 @@
             this.btnSelect = new System.Windows.Forms.Button();
             this.dgvView = new System.Windows.Forms.DataGridView();
             this.tbSelect = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lv2 = new System.Windows.Forms.ListView();
+            this.btnSelect2 = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -261,6 +271,72 @@
             this.tbSelect.Size = new System.Drawing.Size(778, 20);
             this.tbSelect.TabIndex = 2;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.tableLayoutPanel2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(792, 424);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "SqlDataReader";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.lv2, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSelect2, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(792, 424);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // lv2
+            // 
+            this.lv2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.lv2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lv2.GridLines = true;
+            this.lv2.HideSelection = false;
+            this.lv2.Location = new System.Drawing.Point(3, 3);
+            this.lv2.Name = "lv2";
+            this.lv2.Size = new System.Drawing.Size(786, 375);
+            this.lv2.TabIndex = 0;
+            this.lv2.UseCompatibleStateImageBehavior = false;
+            this.lv2.View = System.Windows.Forms.View.Details;
+            // 
+            // btnSelect2
+            // 
+            this.btnSelect2.Location = new System.Drawing.Point(3, 384);
+            this.btnSelect2.Name = "btnSelect2";
+            this.btnSelect2.Size = new System.Drawing.Size(75, 37);
+            this.btnSelect2.TabIndex = 1;
+            this.btnSelect2.Text = "SELECT";
+            this.btnSelect2.UseVisualStyleBackColor = true;
+            this.btnSelect2.Click += new System.EventHandler(this.btnSelect2_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ProductName";
+            this.columnHeader1.Width = 144;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "QuantityPerUnit";
+            this.columnHeader2.Width = 130;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "UnitPrice";
+            this.columnHeader3.Width = 114;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,6 +353,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,6 +382,13 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.DataGridView dgvView;
         private System.Windows.Forms.TextBox tbSelect;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ListView lv2;
+        private System.Windows.Forms.Button btnSelect2;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 

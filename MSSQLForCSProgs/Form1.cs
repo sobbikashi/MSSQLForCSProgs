@@ -53,19 +53,47 @@ namespace MSSQLForCSProgs
                 dataAdapter.Fill(dataSet);
                 dgvView.DataSource = dataSet.Tables[0];
             }
-            catch (System.Data.SqlClient.SqlException ex)
+            catch (SqlException ex)
             {
                 MessageBox.Show("Некорректный запрос, проверьте синтаксис");
             }
-            //SqlDataAdapter dataAdapter = new SqlDataAdapter(tbSelect.Text, sqlConnection);
-            //DataSet dataSet = new DataSet();
-            //dataAdapter.Fill(dataSet);
-            //dgvView.DataSource = dataSet.Tables[0];
+            
             catch
             {
                 MessageBox.Show("Проверьте запрос");
             }
 
+        }
+
+        private void btnSelect2_Click(object sender, EventArgs e)
+        {
+            lv2.Items.Clear();
+            SqlDataReader dataReader = null;
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("SELECT ProductName, QuantityPerUnit, UnitPrice FROM Products", sqlConnection); 
+                dataReader = sqlCommand.ExecuteReader();
+                ListViewItem item = null;
+                while (dataReader.Read())
+                {
+                    item = new ListViewItem(new String[] { Convert.ToString(dataReader["ProductName"]), 
+                        Convert.ToString(dataReader["QuantityPerUnit"]), 
+                        Convert.ToString(dataReader["UnitPrice"]) });
+                    lv2.Items.Add(item);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+            }
         }
     }
 }
