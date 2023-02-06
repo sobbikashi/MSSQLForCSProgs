@@ -14,17 +14,20 @@ namespace MSSQLForCSProgs
             InitializeComponent();
         }
 
+        #region Запуск формы
         private void Form1_Load(object sender, EventArgs e)
         {
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Northwind"].ConnectionString);
             sqlConnection.Open();
-            
+
             if (sqlConnection.State == ConnectionState.Open)
             {
                 MessageBox.Show("Подключение установлено!");
             }
         }
+        #endregion
 
+        #region Первая вкладка
         private void btnINSERT_Click(object sender, EventArgs e)
         {
             SqlCommand command = new SqlCommand($"INSERT INTO [Students] (Name, Surname, Birthday, Birthplace, Phone, Email) VALUES (@Name, @Surname, @Birthday, @Birthplace, @Phone, @Email)", sqlConnection);
@@ -37,18 +40,21 @@ namespace MSSQLForCSProgs
             command.Parameters.AddWithValue("Phone", tbPhone.Text);
             command.Parameters.AddWithValue("Email", tbEmail.Text);
             MessageBox.Show(command.ExecuteNonQuery().ToString());
-        }
+        } 
+       
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
+        #endregion
 
+        #region Вторая вкладка
         private void btnSelect_Click(object sender, EventArgs e)
         {
             try
             {
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(tbSelect.Text, sqlConnection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(rtbSelect.Text, sqlConnection);
                 DataSet dataSet = new DataSet();
                 dataAdapter.Fill(dataSet);
                 dgvView.DataSource = dataSet.Tables[0];
@@ -57,27 +63,29 @@ namespace MSSQLForCSProgs
             {
                 MessageBox.Show("Некорректный запрос, проверьте синтаксис");
             }
-            
+
             catch
             {
                 MessageBox.Show("Проверьте запрос");
             }
 
         }
+        #endregion
 
+        #region Третья вкладка
         private void btnSelect2_Click(object sender, EventArgs e)
         {
             lv2.Items.Clear();
             SqlDataReader dataReader = null;
             try
             {
-                SqlCommand sqlCommand = new SqlCommand("SELECT ProductName, QuantityPerUnit, UnitPrice FROM Products", sqlConnection); 
+                SqlCommand sqlCommand = new SqlCommand("SELECT ProductName, QuantityPerUnit, UnitPrice FROM Products", sqlConnection);
                 dataReader = sqlCommand.ExecuteReader();
                 ListViewItem item = null;
                 while (dataReader.Read())
                 {
-                    item = new ListViewItem(new String[] { Convert.ToString(dataReader["ProductName"]), 
-                        Convert.ToString(dataReader["QuantityPerUnit"]), 
+                    item = new ListViewItem(new String[] { Convert.ToString(dataReader["ProductName"]),
+                        Convert.ToString(dataReader["QuantityPerUnit"]),
                         Convert.ToString(dataReader["UnitPrice"]) });
                     lv2.Items.Add(item);
 
@@ -95,5 +103,8 @@ namespace MSSQLForCSProgs
                 }
             }
         }
+        #endregion
+
+        
     }
 }

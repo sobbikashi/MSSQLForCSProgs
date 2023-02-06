@@ -46,16 +46,16 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.dgvView = new System.Windows.Forms.DataGridView();
-            this.tbSelect = new System.Windows.Forms.TextBox();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lv2 = new System.Windows.Forms.ListView();
-            this.btnSelect2 = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSelect2 = new System.Windows.Forms.Button();
+            this.rtbSelect = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -232,28 +232,19 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.btnSelect, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dgvView, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tbSelect, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnSelect, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rtbSelect, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 418);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Location = new System.Drawing.Point(3, 361);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 33);
-            this.btnSelect.TabIndex = 0;
-            this.btnSelect.Text = "SELECT";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // dgvView
             // 
@@ -261,15 +252,18 @@
             this.dgvView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvView.Location = new System.Drawing.Point(3, 3);
             this.dgvView.Name = "dgvView";
-            this.dgvView.Size = new System.Drawing.Size(780, 352);
+            this.dgvView.Size = new System.Drawing.Size(780, 334);
             this.dgvView.TabIndex = 1;
             // 
-            // tbSelect
+            // btnSelect
             // 
-            this.tbSelect.Location = new System.Drawing.Point(3, 400);
-            this.tbSelect.Name = "tbSelect";
-            this.tbSelect.Size = new System.Drawing.Size(778, 20);
-            this.tbSelect.TabIndex = 2;
+            this.btnSelect.Location = new System.Drawing.Point(3, 343);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 31);
+            this.btnSelect.TabIndex = 0;
+            this.btnSelect.Text = "SELECT";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // tabPage3
             // 
@@ -312,16 +306,6 @@
             this.lv2.UseCompatibleStateImageBehavior = false;
             this.lv2.View = System.Windows.Forms.View.Details;
             // 
-            // btnSelect2
-            // 
-            this.btnSelect2.Location = new System.Drawing.Point(3, 384);
-            this.btnSelect2.Name = "btnSelect2";
-            this.btnSelect2.Size = new System.Drawing.Size(75, 37);
-            this.btnSelect2.TabIndex = 1;
-            this.btnSelect2.Text = "SELECT";
-            this.btnSelect2.UseVisualStyleBackColor = true;
-            this.btnSelect2.Click += new System.EventHandler(this.btnSelect2_Click);
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "ProductName";
@@ -337,6 +321,24 @@
             this.columnHeader3.Text = "UnitPrice";
             this.columnHeader3.Width = 114;
             // 
+            // btnSelect2
+            // 
+            this.btnSelect2.Location = new System.Drawing.Point(3, 384);
+            this.btnSelect2.Name = "btnSelect2";
+            this.btnSelect2.Size = new System.Drawing.Size(75, 37);
+            this.btnSelect2.TabIndex = 1;
+            this.btnSelect2.Text = "SELECT";
+            this.btnSelect2.UseVisualStyleBackColor = true;
+            this.btnSelect2.Click += new System.EventHandler(this.btnSelect2_Click);
+            // 
+            // rtbSelect
+            // 
+            this.rtbSelect.Location = new System.Drawing.Point(3, 380);
+            this.rtbSelect.Name = "rtbSelect";
+            this.rtbSelect.Size = new System.Drawing.Size(767, 14);
+            this.rtbSelect.TabIndex = 2;
+            this.rtbSelect.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,7 +353,6 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -381,7 +382,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.DataGridView dgvView;
-        private System.Windows.Forms.TextBox tbSelect;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ListView lv2;
@@ -389,6 +389,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.RichTextBox rtbSelect;
     }
 }
 
